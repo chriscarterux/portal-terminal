@@ -1,0 +1,10 @@
+export { TerminalManager } from './terminal-manager';
+export { MCPTerminal } from './mcp-terminal';
+export { IntegratedTerminal } from './integrated-terminal';
+export { PortalTerminal } from './portal-terminal';
+export { CommandBlock } from './command-block';
+export { TerminalSession } from './terminal-session';
+export { CommandExecutor } from './command-executor';
+export { CommandValidator } from './command-validator';
+export { ShellDetector } from './shell-detector';
+export * from './types';
