@@ -1,0 +1,63 @@
+{
+  "name": "portal-terminal",
+  "version": "0.1.0",
+  "description": "AI-powered terminal application with local models and MCP integration",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "services/*"
+  ],
+  "scripts": {
+    "build": "npm run build:packages && npm run build:apps",
+    "build:packages": "npm run build --workspaces --if-present",
+    "build:apps": "npm run build -w apps/desktop",
+    "dev": "npm run dev -w apps/desktop",
+    "dev:packages": "npm run dev --workspaces --if-present",
+    "test": "jest",
+    "test:packages": "npm run test --workspaces --if-present",
+    "test:e2e": "playwright test",
+    "test:all": "npm run test && npm run test:e2e",
+    "test:ai": "node scripts/test-ai-models.js",
+    "test:ai-providers": "node scripts/test-ai-providers.js",
+    "test:mcp": "node scripts/test-mcp-servers.js",
+    "benchmark:ai": "node scripts/benchmark-ai.js",
+    "test:integration": "node scripts/test-integration.js",
+    "demo": "node scripts/demo-portal.js",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "type-check": "tsc --noEmit",
+    "claude:init": "node scripts/claude-init.js",
+    "claude:update-context": "node scripts/update-context.js",
+    "claude:start-development": "node scripts/start-development.js",
+    "dev:setup": "npm run claude:init && npm install",
+    "dev:start": "npm run claude:update-context && npm run dev",
+    "postinstall": "npx @electron/rebuild",
+    "rebuild": "npx @electron/rebuild",
+    "electron:rebuild": "npx @electron/rebuild node-pty"
+  },
+  "devDependencies": {
+    "@electron/rebuild": "^4.0.1",
+    "@playwright/test": "^1.40.0",
+    "@types/jsdom": "^21.1.7",
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "concurrently": "^8.2.2",
+    "electron-rebuild": "^3.2.9",
+    "eslint": "^8.54.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.7.0",
+    "jsdom": "^23.0.0",
+    "prettier": "^3.1.0",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
