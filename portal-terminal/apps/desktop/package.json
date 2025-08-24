@@ -34,6 +34,7 @@
     "vite": "^5.0.8"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@portal/mcp-client": "*",
     "@portal/terminal-core": "*",
     "@portal/ui-components": "*",

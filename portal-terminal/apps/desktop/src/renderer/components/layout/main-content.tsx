@@ -4,27 +4,35 @@ import { ActionCard } from '../ui/action-card';
 
 export interface IMainContentProps {
   className?: string;
+  onStartTerminal?: () => void;
 }
 
-export const MainContent: React.FC<IMainContentProps> = ({ className = '' }) => {
+export const MainContent: React.FC<IMainContentProps> = ({ 
+  className = '', 
+  onStartTerminal 
+}) => {
   const handleInstallClick = () => {
-    // TODO: Implement install action
-    console.log('Install clicked');
+    onStartTerminal?.();
+    // TODO: Implement install action with terminal
+    console.log('Install clicked - starting terminal');
   };
 
   const handleCodeClick = () => {
-    // TODO: Implement code action
-    console.log('Code clicked');
+    onStartTerminal?.();
+    // TODO: Implement code action with terminal
+    console.log('Code clicked - starting terminal');
   };
 
   const handleDeployClick = () => {
-    // TODO: Implement deploy action
-    console.log('Deploy clicked');
+    onStartTerminal?.();
+    // TODO: Implement deploy action with terminal
+    console.log('Deploy clicked - starting terminal');
   };
 
   const handleMoreClick = () => {
-    // TODO: Implement more actions
-    console.log('Something else clicked');
+    onStartTerminal?.();
+    // TODO: Implement more actions with terminal
+    console.log('Something else clicked - starting terminal');
   };
 
   return (

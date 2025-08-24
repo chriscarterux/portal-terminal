@@ -8,11 +8,13 @@ import { MainContent } from './main-content';
 export interface IAppLayoutProps {
   children?: React.ReactNode;
   showWelcomeScreen?: boolean;
+  onStartTerminal?: () => void;
 }
 
 export const AppLayout: React.FC<IAppLayoutProps> = ({ 
   children, 
-  showWelcomeScreen = true 
+  showWelcomeScreen = true,
+  onStartTerminal
 }) => {
   const { isCollapsed } = useUIStore(selectSidebarState);
   const toggleSidebar = useUIStore((state) => state.toggleSidebar);
@@ -57,9 +59,9 @@ export const AppLayout: React.FC<IAppLayoutProps> = ({
         {/* Content Area */}
         <div className="flex-1 overflow-hidden">
           {showWelcomeScreen ? (
-            <MainContent />
+            <MainContent onStartTerminal={onStartTerminal} />
           ) : (
-            children || <MainContent />
+            children || <MainContent onStartTerminal={onStartTerminal} />
           )}
         </div>
       </div>
