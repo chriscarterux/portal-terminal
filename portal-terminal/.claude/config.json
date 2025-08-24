@@ -1,0 +1,23 @@
+{
+  "memory": {
+    "enabled": true,
+    "files": [
+      ".claude/memory/project-context.md",
+      ".claude/memory/architecture.md",
+      ".claude/memory/implementation-strategy.md",
+      ".claude/memory/conventions.md",
+      ".claude/memory/dependencies.md"
+    ],
+    "autoUpdate": true
+  },
+  "workspace": {
+    "rootPath": ".",
+    "includePaths": ["apps/", "packages/", "services/", "docs/"],
+    "excludePaths": ["node_modules/", "dist/", "build/", ".git/"]
+  },
+  "features": {
+    "autoSave": true,
+    "continuousLearning": true,
+    "projectAnalysis": true
+  }
+}

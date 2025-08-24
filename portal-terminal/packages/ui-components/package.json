@@ -1,0 +1,22 @@
+{
+  "name": "@portal/ui-components",
+  "version": "0.1.0",
+  "description": "Portal Terminal UI Components",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "jest"
+  },
+  "dependencies": {
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.45",
+    "typescript": "^5.3.0"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0"
+  }
+}

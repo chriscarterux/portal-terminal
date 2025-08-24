@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+  background: #1a1a1a;
+  color: #e0e0e0;
+  overflow: hidden;
+  user-select: none;
+}
+
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #1a1a1a;
+}
+
+/* Window Controls */
+.window-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 32px;
+  background: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0 16px;
+  -webkit-app-region: drag;
+}
+
+.window-controls-left {
+  display: flex;
+  align-items: center;
+}
+
+.app-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #e0e0e0;
+}
+
+.window-controls-right {
+  display: flex;
+  gap: 8px;
+  -webkit-app-region: no-drag;
+}
+
+.window-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #888;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.window-control:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e0e0e0;
+}
+
+.window-control.close:hover {
+  background: #ff5f56;
+  color: white;
+}
+
+.window-control.minimize:hover {
+  background: #ffbd2e;
+  color: white;
+}
+
+.window-control.maximize:hover {
+  background: #28ca42;
+  color: white;
+}
+
+/* Terminal Area */
+.terminal-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.terminal-container {
+  flex: 1;
+  padding: 16px;
+  background: #1a1a1a;
+}
+
+/* xterm.js overrides */
+.xterm {
+  padding: 0;
+}
+
+.xterm .xterm-viewport {
+  overflow-y: auto;
+}
+
+.xterm .xterm-screen {
+  user-select: text;
+}
+
+.xterm .xterm-cursor {
+  background-color: #00d4aa !important;
+}
+
+.xterm .xterm-selection {
+  background-color: rgba(0, 212, 170, 0.3) !important;
+}
