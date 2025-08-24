@@ -432,9 +432,13 @@ export const selectCommandState = (state: IUIState) => ({
   hasHistory: state.commandHistory.length > 0,
 });
 
-export const selectTerminalContext = (state: IUIState) => ({
-  workingDirectory: state.workingDirectory,
-  gitBranch: state.gitBranch,
-  gitStatus: state.gitStatus,
-  displayDirectory: state.workingDirectory.replace(process.env.HOME || '~', '~'),
-});
+export const selectTerminalContext = (state: IUIState) => {
+  // Browser-safe way to get display directory
+  const homeDir = typeof window !== 'undefined' ? '/Users/user' : (process.env.HOME || '~');
+  return {
+    workingDirectory: state.workingDirectory,
+    gitBranch: state.gitBranch,
+    gitStatus: state.gitStatus,
+    displayDirectory: state.workingDirectory.replace(homeDir, '~'),
+  };
+};

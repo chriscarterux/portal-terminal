@@ -10,25 +10,33 @@ export const WindowControls: React.FC<IWindowControlsProps> = ({ terminalId }) =
 
   useEffect(() => {
     const checkMaximized = async () => {
-      const maximized = await window.electronAPI.window.isMaximized();
-      setIsMaximized(maximized);
+      if (window.electronAPI?.window?.isMaximized) {
+        const maximized = await window.electronAPI.window.isMaximized();
+        setIsMaximized(maximized);
+      }
     };
     
     checkMaximized();
   }, []);
 
   const handleMinimize = async () => {
-    await window.electronAPI.window.minimize();
+    if (window.electronAPI?.window?.minimize) {
+      await window.electronAPI.window.minimize();
+    }
   };
 
   const handleMaximize = async () => {
-    await window.electronAPI.window.maximize();
-    const maximized = await window.electronAPI.window.isMaximized();
-    setIsMaximized(maximized);
+    if (window.electronAPI?.window?.maximize && window.electronAPI?.window?.isMaximized) {
+      await window.electronAPI.window.maximize();
+      const maximized = await window.electronAPI.window.isMaximized();
+      setIsMaximized(maximized);
+    }
   };
 
   const handleClose = async () => {
-    await window.electronAPI.window.close();
+    if (window.electronAPI?.window?.close) {
+      await window.electronAPI.window.close();
+    }
   };
 
   return (

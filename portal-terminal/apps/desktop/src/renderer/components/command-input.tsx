@@ -21,12 +21,10 @@ export const CommandInput: React.FC<CommandInputProps> = ({
   const { displayDirectory, gitBranch, gitStatus } = useUIStore(selectTerminalContext);
   const { naturalLanguageEnabled, aiSuggestionsEnabled } = useUIStore(selectAIState);
   
-  const {
-    setCurrentCommand,
-    addToHistory,
-    navigateHistory,
-    clearCurrentCommand,
-  } = useUIStore();
+  const setCurrentCommand = useUIStore((state) => state.setCurrentCommand);
+  const addToHistory = useUIStore((state) => state.addToHistory);
+  const navigateHistory = useUIStore((state) => state.navigateHistory);
+  const clearCurrentCommand = useUIStore((state) => state.clearCurrentCommand);
 
   // Focus input on mount and when command changes
   useEffect(() => {

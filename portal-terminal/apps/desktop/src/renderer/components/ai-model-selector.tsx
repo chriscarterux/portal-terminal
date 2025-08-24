@@ -17,12 +17,10 @@ export const AIModelSelector: React.FC<AIModelSelectorProps> = ({ className = ''
     aiSuggestionsEnabled,
   } = useUIStore(selectAIState);
   
-  const {
-    setSelectedAIModel,
-    setAIModelDropdownOpen,
-    setNaturalLanguageEnabled,
-    setAISuggestionsEnabled,
-  } = useUIStore();
+  const setSelectedAIModel = useUIStore((state) => state.setSelectedAIModel);
+  const setAIModelDropdownOpen = useUIStore((state) => state.setAIModelDropdownOpen);
+  const setNaturalLanguageEnabled = useUIStore((state) => state.setNaturalLanguageEnabled);
+  const setAISuggestionsEnabled = useUIStore((state) => state.setAISuggestionsEnabled);
 
   const selectedModelData = availableModels.find(m => m.id === selectedModel);
 
@@ -41,7 +39,7 @@ export const AIModelSelector: React.FC<AIModelSelectorProps> = ({ className = ''
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [dropdownOpen, setAIModelDropdownOpen]);
+  }, [dropdownOpen]);
 
   const handleModelSelect = (modelId: string) => {
     setSelectedAIModel(modelId);

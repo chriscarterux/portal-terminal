@@ -79,6 +79,21 @@
       "env": {
         "TAVILY_API_KEY": "${TAVILY_API_KEY}"
       }
+    },
+    {
+      "id": "playwright",
+      "name": "Playwright Browser Testing",
+      "description": "Browser automation for testing and site verification",
+      "command": "npx",
+      "args": ["playwright-mcp"],
+      "transport": "stdio",
+      "enabled": true,
+      "autoStart": true,
+      "restartOnFailure": true,
+      "maxRestarts": 3,
+      "healthCheckInterval": 30000,
+      "capabilities": ["tools"],
+      "env": {}
     }
   ],
   "settings": {

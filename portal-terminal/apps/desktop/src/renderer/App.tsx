@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { WarpTerminal } from './components/warp-terminal';
 import { TerminalView } from './components/terminal-view';
 import { WindowControls } from './components/window-controls';
-import { AppLayout } from './components/layout/app-layout';
+import { SimpleAppLayout as AppLayout } from './components/layout/simple-app-layout';
 import './styles/globals.css';
 
 const App: React.FC = () => {
   const [terminalId, setTerminalId] = useState<string | null>(null);
-  const [showTerminal, setShowTerminal] = useState(true); // Default to true to show terminal
+  const [showTerminal, setShowTerminal] = useState(false); // Start with welcome screen
   const [useEnhancedTerminal, setUseEnhancedTerminal] = useState(true); // Toggle between old and new terminal
 
   const handleStartTerminal = () => {
